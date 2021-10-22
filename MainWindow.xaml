@@ -1,0 +1,255 @@
+﻿<Window x:Class="ProgrammingProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgrammingProject"
+        mc:Ignorable="d"
+        Title="Calculator" Height="457.111" Width="800"
+        Background="#202630"
+        ResizeMode="NoResize">
+    
+    <Window.Resources>
+        <Color x:Key="Color1">#FFF3AD00</Color>
+        <Color x:Key="Color2">Black</Color>
+        <Color x:Key="Color3">White</Color>
+        <Color x:Key="Color4">#FFF3AD00</Color>
+    </Window.Resources>
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792">
+            <TabItem BorderThickness="1"   Height="55" BorderBrush="#F3AD00" Foreground="#F3AD00" Background="#181F28" Header="Login" x:Name="tabLogin" Margin="3,-2,-3,2" Width="200">
+                <Grid UseLayoutRounding="True" Background="#202630" Margin="-10,-14,-5,-7">
+                    <Rectangle  Fill="#181F28" HorizontalAlignment="Left" Height="300" Margin="200,57,0,0" Stroke="Black" VerticalAlignment="Top" Width="400"/>
+                    <TextBox BorderBrush="#4F5862" Background="#181F28" x:Name="Logusername" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="300,122,0,0">
+                        <TextBox.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color3}"/>
+                        </TextBox.Foreground>
+                    </TextBox>
+                    <PasswordBox BorderBrush="#4F5862" Background="#181F28" x:Name="logPassword" HorizontalAlignment="Left" Height="35"  VerticalAlignment="Top" Width="200
+                                 " Margin="300,189,0,0">
+                        <PasswordBox.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color3}"/>
+                        </PasswordBox.Foreground>
+                    </PasswordBox>
+                    <Label FontWeight="Bold" FontSize="20" FontFamily="Nexa" Foreground="#F3AD00" Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,83,0,0"/>
+                    <Label FontWeight="Bold" FontSize="20" FontFamily="Nexa" Foreground="#F3AD00" Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,157,0,0"/>
+                    <Button FontFamily="Nexa" BorderBrush="#F3AD00" Background="#F3AD00" x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="300,249,0,0" Click="Login_Click" Height="50
+                            "/>
+                    <Label Foreground="#F3AD00" Content="Don't have an account?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="303,309,0,0"/>
+                    <Button BorderThickness="0" Background="#181F28" Click="SignupLabelClick"  Foreground="#F3AD00" Content="Signup" FontStyle="Oblique" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="442,312,0,0"/>
+                    <Rectangle Fill="#F3AD00" HorizontalAlignment="Left" Height="11" Margin="10,11,0,0" Stroke="Black" VerticalAlignment="Top" Width="789"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem  BorderBrush="#F3AD00" Background="#181F28" Foreground="#F3AD00" Header="Signup" x:Name="tabSignup" Margin="90,0,-90,0" Width="200" Height="55">
+                <Grid Background="#202630" Margin="-10,-14,-5,-7">
+                    <Rectangle  Fill="#181F28" HorizontalAlignment="Left" Height="300" Margin="200,57,0,0" Stroke="Black" VerticalAlignment="Top" Width="400"/>
+                    <Button FontFamily="Nexa" BorderBrush="#F3AD00" Background="#F3AD00" Content="Signup" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="300,290,0,0" Click="Signup_Click" Height="50
+                            "/>
+                    <TextBox BorderBrush="#4F5862" Background="#181F28" x:Name="RegUsername" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"  Margin="300,100,0,0" TextChanged="txtchangedUsername" >
+                        <TextBox.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color3}"/>
+                        </TextBox.Foreground>
+                    </TextBox>
+                    <PasswordBox BorderBrush="#4F5862" Background="#181F28" x:Name="RegPassword" HorizontalAlignment="Left" Height="35"  VerticalAlignment="Top" Width="200" Margin="300,170,0,0">
+                        <PasswordBox.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color3}"/>
+                        </PasswordBox.Foreground>
+                    </PasswordBox>
+                    <Label FontWeight="Bold" FontSize="20" FontFamily="Nexa" Foreground="#F3AD00"  Content="Confirm Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="311,210,0,0"/>
+                    <Label FontWeight="Bold" FontSize="20" FontFamily="Nexa" Foreground="#F3AD00" Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="350,140,0,0"/>
+                    <Label FontWeight="Bold" FontSize="20" FontFamily="Nexa" Foreground="#F3AD00" Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="350,70,0,0"/>
+                    <PasswordBox BorderBrush="#4F5862" Background="#181F28" x:Name="RegRePassword"  HorizontalAlignment="Left" Height="35"  VerticalAlignment="Top" Width="200" Margin="300,240,0,0">
+                        <PasswordBox.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color3}"/>
+                        </PasswordBox.Foreground>
+                    </PasswordBox>
+                    <Rectangle Fill="#F3AD00" HorizontalAlignment="Left" Height="11" Margin="10,11,0,0" Stroke="Black" VerticalAlignment="Top" Width="789"/>
+                </Grid>
+
+
+
+
+            </TabItem>
+            <TabItem  Height="55"  BorderBrush="#F3AD00" Background="#181F28" Foreground="#F3AD00" Header="Calculator" x:Name="tabCalculator" Margin="188,0,-188,0" Width="200"
+                      >
+                <Grid KeyDown="Grid_KeyDown" Background="#202630" Margin="-10,-14,-5,-7">
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="." HorizontalAlignment="Left" Margin="361,315,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="0" HorizontalAlignment="Left" Margin="434,315,0,0" VerticalAlignment="Top" Width="130" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="*" HorizontalAlignment="Left" Margin="651,255,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="," HorizontalAlignment="Left" Margin="579,315,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="1" HorizontalAlignment="Left" Margin="361,255,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="2" HorizontalAlignment="Left" Margin="434,255,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="3" HorizontalAlignment="Left" Margin="506,255,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content=")" HorizontalAlignment="Left" Margin="579,255,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="4" HorizontalAlignment="Left" Margin="361,194,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="5" HorizontalAlignment="Left" Margin="434,194,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="6" HorizontalAlignment="Left" Margin="506,194,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="(" HorizontalAlignment="Left" Margin="579,194,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button BorderBrush="#F3AD00" BorderThickness="1" Content="7" HorizontalAlignment="Left" Margin="361,134,0,0" VerticalAlignment="Top" Width="58" Height="54" Click="CalculatorBtnClick">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="8" HorizontalAlignment="Left" Margin="434,134,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button  Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="9" HorizontalAlignment="Left" Margin="506,134,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button ToolTip="Deletes your last character" BorderBrush="#F3AD00" BorderThickness="1" Content="⌫" HorizontalAlignment="Left" Margin="579,134,0,0" VerticalAlignment="Top" Width="58" Height="54" Click="deleteclick">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderBrush="#F3AD00" BorderThickness="1" Content="/" HorizontalAlignment="Left" Margin="651,315,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderThickness="1" BorderBrush="#F3AD00" Content="-" HorizontalAlignment="Left" Margin="651,194,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="CalculatorBtnClick" BorderThickness="1" BorderBrush="#F3AD00" Content="+" HorizontalAlignment="Left" Margin="651,134,0,0" VerticalAlignment="Top" Width="58" Height="54">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button ToolTip="Clear result box" x:Name="ClearButton" BorderBrush="#F3AD00" BorderThickness="1" Content="C" HorizontalAlignment="Left" Margin="724,134,0,0" VerticalAlignment="Top" Width="58" Height="54" Click="clearbtnclick">
+                        <Button.Foreground>
+                            <SolidColorBrush Color="{DynamicResource Color2}"/>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <SolidColorBrush Color="{DynamicResource Color1}"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Click="EqualbtnClick" x:Name="Equalbtn" BorderBrush="#F3AD00" Foreground="Black" BorderThickness="1" Background="#F3AD00" Content="=" HorizontalAlignment="Left" Margin="724,194,0,0" VerticalAlignment="Top" Width="58" Height="175"/>
+                    <TextBox ToolTip="Result Box" x:Name="resultbox" BorderBrush="#F3AD00" Foreground="White" BorderThickness="1" Background="#181F28" HorizontalAlignment="Left" Height="108" Margin="361,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="316"/>
+                    <ListBox BorderBrush="#F3AD00" ToolTip="Your Listbox" x:Name="ListboxResults" BorderThickness="0" Foreground="White"  Background="#181F28" HorizontalAlignment="Left" Height="138" Margin="10,19,0,0" VerticalAlignment="Top" Width="335"/>
+                    <TextBox BorderBrush="#F3AD00" ToolTip="Press load logs to load your logs" VerticalScrollBarVisibility="Auto" Foreground="#F3AD00" x:Name="TextBlockLoad"  Background="#181F28" HorizontalAlignment="Left" Margin="10,222,0,0" TextWrapping="Wrap" Text="Saved Logs" VerticalAlignment="Top" Height="146" Width="335"/>
+                    <Button ToolTip="Save your logs" Click="savebtn" x:Name="SaveLogbtn" BorderBrush="#F3AD00" Foreground="Black" BorderThickness="1" Background="#F3AD00" Content="Save Log" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Width="73" Height="54"/>
+                    <Button ToolTip="Load your logs" Click="loadbtn" x:Name="LoadLogsbtn" BorderBrush="#F3AD00" Foreground="Black" BorderThickness="1" Background="#F3AD00" Content="Load Logs" HorizontalAlignment="Left" Margin="245,163,0,0" VerticalAlignment="Top" Width="100" Height="54"/>
+                    <Rectangle Fill="#F3AD00" HorizontalAlignment="Left" Height="5" Margin="10,9,0,0" Stroke="Black" VerticalAlignment="Top" Width="789"/>
+                    <Label FontSize="12" x:Name="labelUsername" Foreground="#F3AD00" Content="LoggedInName" HorizontalAlignment="Left" Margin="83,176,0,0" VerticalAlignment="Top"/>
+                    <Button ToolTip="Logout of your account"  x:Name="Logoutbtn" BorderBrush="#F3AD00" Foreground="Black" BorderThickness="1" Background="#F3AD00" Content="Logout" HorizontalAlignment="Left" Margin="691,16,0,0" VerticalAlignment="Top" Width="100" Height="54" Click="btnLogout_Click"/>
+                </Grid>
+
+
+
+
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>
